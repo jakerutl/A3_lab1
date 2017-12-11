@@ -39,4 +39,21 @@ if (isset($_GET['carModel'])){//see if there's a parameter called carModel
   echo json_encode($row);
 }
 
+
+if (isset($_GET['getVideos'])) {//see if there's a parameter called carModel
+
+
+  $myQuery = "SELECT * FROM video";
+
+  $result = mysqli_query($conn, $myQuery);
+  $rows = array();
+
+  while($row = mysqli_fetch_assoc($result)) {
+    $rows[] = $row;
+  }
+
+  echo json_encode($rows);
+}
+
+
  ?>
