@@ -45,12 +45,12 @@ function processRequest() {
       let  price = document.querySelector('.priceInfo').innerHTML = pricing;
       let  desc = document.querySelector('.modelDetails').textContent = modelDetails;
 
-      carButtons.forEach(function(car,index){
-        car.classList.add('nonActive');
+    images.forEach(function(image, index){
+        image.classList.add('nonActive');
       });
 
       // this is a template string constructor - look it up!
-      document.querySelector('#${data.model}').classList.remove('nonActive');
+      document.querySelector(`#${data.model}`).classList.remove('nonActive');
     }
 
 images.forEach(function(car, index) {
