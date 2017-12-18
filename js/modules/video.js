@@ -44,8 +44,31 @@ var video = {
   },
 
   loadVideoThumbs(data){
-    debugger;
-    //add video thumbnails here
+    // debugger;
+    let thumbHolder = document.querySelector('.video-thumbs');
+
+    data.forEach(thumb => {
+      let docFrag = `<li class="vid-thumb" role="button" data-videopath="${thumb.path}">
+                      <img src="images/${thumb.placeholder}" alt="mini commercial" class="responsive">
+                     </li>`;
+      thumbHolder.innerHTML += docFrag;
+    });
+
+    thumbHolder.querySelectorAll('li').forEach((thumb) => thumb.addEventListener('click', video.loadNewVideo));
+  },
+
+  loadNewVideo(){
+    // debugger;
+    let videoPath = "video/" + this.dataset.videopath;
+
+    video.videoPlayer.src = videoPath;
+    video.videoPlayer.load();
+    video.videoPlayer.play();
+
+    let overlay = document.querySelector('.vid-overlay');
+    overlay.classList.remove('show-overlay');
+
+    video.volOn();
   },
 
   init() {

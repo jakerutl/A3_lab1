@@ -7,7 +7,7 @@ var images = document.querySelectorAll('.data-ref');
 
 
     function getCarData(){
-      const url = './includes/functions.php?carModel=' + this.id;
+      const url = './includes/functions.php?carModel=' + this.id; //this is a function in functions.php
 
       //the fetch API uses new Javascript promise API
       fetch(url)// do an ajax call with fetch
@@ -30,21 +30,6 @@ var images = document.querySelectorAll('.data-ref');
 }
 
 
-    //
-    // function processResult(data) {
-    //   const { modelName, pricing, modelDetails } = data;
-    //
-    //   let  model = document.querySelector('.modelName').textContent = modelName;
-    //   let  price = document.querySelector('.priceInfo').innerHTML = pricing;
-    //   let  desc = document.querySelector('.modelDetails').textContent = modelDetails;
-    //
-    // images.forEach(function(image, index){
-    //     image.classList.add('nonActive');
-    //   });
-    //
-    //   // this is a template string constructor - look it up!
-    //   document.querySelector(`#${data.model}`).classList.remove('nonActive');
-    // }
 
 images.forEach(function(car, index) {
   car.addEventListener('click', getCarData, false);

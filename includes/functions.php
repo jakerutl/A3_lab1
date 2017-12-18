@@ -2,30 +2,24 @@
   $user = "root";
   $pass = "root"; //this should be a blank string for windows machines
   $host = "localhost";
-  $db = "db_cooperinfo"; // whatever you called your database
+  $db = "db_cooper"; // whatever you called your database
 
   $conn = mysqli_connect($host, $user, $pass, $db);
-  mysqli_set_charset('utf8');
+  mysqli_set_charset($conn, 'utf8');
 
   if (!$conn){
     echo "something broke... no soup for you!";
     exit;
   }
-
-// echo "connected!";
-
-
-$myQuery = "SELECT * FROM mainmodel";
-$result = mysqli_query($conn, $myQuery);
-
-$rows = array();
-
-while($row = mysqli_fetch_assoc($result)) {
-  $rows[] = $row;
-}
-
-// var_dump($rows);
-// echo json_encode($rows);
+//
+// $myQuery = "SELECT * FROM mainmodel";
+// $result = mysqli_query($conn, $myQuery);
+//
+// $rows = array();
+//
+// while($row = mysqli_fetch_assoc($result)) {
+//   $rows[] = $row;
+// }
 
 //get a single row (one result) using a query parameter
 if (isset($_GET['carModel'])){//see if there's a parameter called carModel
@@ -40,7 +34,7 @@ if (isset($_GET['carModel'])){//see if there's a parameter called carModel
 }
 
 
-if (isset($_GET['getVideos'])) {//see if there's a parameter called carModel
+if (isset($_GET["getVideos"])) {
 
 
   $myQuery = "SELECT * FROM video";
